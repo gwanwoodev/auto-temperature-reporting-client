@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <header class="mdc-top-app-bar mdc-top-app-bar--fixed">
+    <header class="mdc-top-app-bar">
         <div class="mdc-top-app-bar__row">
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
                 <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
@@ -25,6 +25,7 @@
             </section>
         </div>
     </header>
+
     <div class="mdc-dialog">
         <div class="mdc-dialog__container">
             <div class="mdc-dialog__surface" role="alertdialog" aria-modal="true" aria-labelledby="my-dialog-title"
@@ -43,18 +44,49 @@
         <div class="mdc-dialog__scrim"></div>
     </div>
 
+    <form id="reportForm">
+        <article>
+            <label class="mdc-text-field mdc-text-field--filled">
+                <span class="mdc-text-field__ripple"></span>
+                <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                <span class="mdc-floating-label" id="my-label-id">E-MAIL</span>
+                <span class="mdc-line-ripple"></span>
+            </label>
+        </article>
+
+        <article>
+            <label class="mdc-text-field mdc-text-field--filled">
+                <span class="mdc-text-field__ripple"></span>
+                <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                <span class="mdc-floating-label" id="my-label-id">Password</span>
+                <span class="mdc-line-ripple"></span>
+            </label>
+        </article>
+
+        <article>
+            <button class="mdc-button mdc-button--raised" id="submit">
+                <div class="mdc-button__ripple"></div>
+                <span class="mdc-button__label">SEND</span>
+            </button>
+        </article>
+    </form>
+
     <!-- Required Material Web JavaScript library -->
     <script src="./src/js/mdc-min.js"></script>
     <!-- Instantiate single textfield component rendered in the document -->
     <script>
         mdc.topAppBar.MDCTopAppBar.attachTo(document.querySelector(".mdc-top-app-bar"));
         const topAppBarElement = document.querySelector('.mdc-top-app-bar');
-
         const dialog = mdc.dialog.MDCDialog.attachTo(document.querySelector(".mdc-dialog"));
 
         document.querySelector("#coffee").addEventListener("click", () => {
             dialog.open();
         });
+        document.querySelectorAll(".mdc-text-field").forEach(tf => {
+            mdc.textField.MDCTextField.attachTo(tf);
+        });
+
+
     </script>
 </body>
 
