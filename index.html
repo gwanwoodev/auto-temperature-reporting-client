@@ -115,7 +115,7 @@
             const httpRequest = new XMLHttpRequest();
             httpRequest.open("POST", "https://evening-cove-41985.herokuapp.com/api/report");
             httpRequest.setRequestHeader("Content-Type", "application/json");
-            httpRequest.send(JSON.stringify({ "idVal": email, "pwVal": encryptPassword, "hugaDate": "2020-07-13" }));
+            httpRequest.send(JSON.stringify({ "idVal": email, "pwVal": encryptPassword, "hugaDate": hugaDate }));
 
             httpRequest.onreadystatechange = (evt) => {
                 if (httpRequest.readyState === XMLHttpRequest.DONE) {
