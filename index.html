@@ -44,11 +44,11 @@
         <div class="mdc-dialog__scrim"></div>
     </div>
 
-    <form id="reportForm">
+    <form id="reportForm" method="POST" action="https://evening-cove-41985.herokuapp.com/api/report">
         <article>
             <label class="mdc-text-field mdc-text-field--filled">
                 <span class="mdc-text-field__ripple"></span>
-                <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id" id="email">
                 <span class="mdc-floating-label" id="my-label-id">E-MAIL</span>
                 <span class="mdc-line-ripple"></span>
             </label>
@@ -57,8 +57,17 @@
         <article>
             <label class="mdc-text-field mdc-text-field--filled">
                 <span class="mdc-text-field__ripple"></span>
-                <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                <input class="mdc-text-field__input" type="password" aria-labelledby="my-label-id" id="password">
                 <span class="mdc-floating-label" id="my-label-id">Password</span>
+                <span class="mdc-line-ripple"></span>
+            </label>
+        </article>
+
+        <article>
+            <label class="mdc-text-field mdc-text-field--filled">
+                <span class="mdc-text-field__ripple"></span>
+                <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id" id="hugaDate">
+                <span class="mdc-floating-label" id="my-label-id">휴가복귀일(예시 2020-07-13)</span>
                 <span class="mdc-line-ripple"></span>
             </label>
         </article>
@@ -86,7 +95,36 @@
             mdc.textField.MDCTextField.attachTo(tf);
         });
 
+        document.querySelector("#reportForm").addEventListener("submit", (evt) => {
+            evt.preventDefault();
+        });
 
+        function sha512(str) {
+            return crypto.subtle.digest("SHA-512", new TextEncoder("utf-8").encode(str)).then(buf => {
+                return Array.prototype.map.call(new Uint8Array(buf), x => (('00' + x.toString(16)).slice(-2))).join('');
+            });
+        }
+
+        document.querySelector("#submit").addEventListener("click", async (evt) => {
+            evt.preventDefault();
+            const email = document.querySelector("#email").value;
+            const password = document.querySelector("#password").value;
+            const hugaDate = document.querySelector("#hugaDate").value;
+            const encryptPassword = await sha512(password);
+
+            const httpRequest = new XMLHttpRequest();
+            httpRequest.open("POST", "https://evening-cove-41985.herokuapp.com/api/report");
+            httpRequest.setRequestHeader("Content-Type", "application/json");
+            httpRequest.send(JSON.stringify({ "idVal": email, "pwVal": encryptPassword, "hugaDate": "2020-07-13" }));
+
+            httpRequest.onreadystatechange = (evt) => {
+                if (httpRequest.readyState === XMLHttpRequest.DONE) {
+                    if (httpRequest.status === 200) {
+                        alert('OK');
+                    }
+                }
+            }
+        });
     </script>
 </body>
 
