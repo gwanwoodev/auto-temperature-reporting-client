@@ -113,7 +113,7 @@
             const encryptPassword = await sha512(password);
 
             const httpRequest = new XMLHttpRequest();
-            httpRequest.open("POST", "https://morning-plains-91682.herokuapp.com/api/report");
+            httpRequest.open("POST", "http://ec2-18-221-223-16.us-east-2.compute.amazonaws.com/api/report");
             httpRequest.setRequestHeader("Content-Type", "application/json");
             httpRequest.send(JSON.stringify({ "idVal": email, "pwVal": encryptPassword, "hugaDate": hugaDate }));
 
@@ -121,7 +121,9 @@
                 if (httpRequest.readyState === XMLHttpRequest.DONE) {
                     if (httpRequest.status === 200) {
                         alert('OK');
-                    }
+                    }else {
+						alert('X');
+					}
                 }
             }
         });
