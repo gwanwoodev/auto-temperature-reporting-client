@@ -96,9 +96,6 @@
         const topAppBarElement = document.querySelector('.mdc-top-app-bar');
         const dialog = mdc.dialog.MDCDialog.attachTo(document.querySelector(".mdc-dialog"));
 
-        document.querySelector("#coffee").addEventListener("click", () => {
-            dialog.open();
-        });
         document.querySelectorAll(".mdc-text-field").forEach(tf => {
             mdc.textField.MDCTextField.attachTo(tf);
         });

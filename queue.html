@@ -26,6 +26,24 @@
         </div>
     </header>
 
+    <div class="mdc-dialog">
+        <div class="mdc-dialog__container">
+            <div class="mdc-dialog__surface" role="alertdialog" aria-modal="true" aria-labelledby="my-dialog-title"
+                aria-describedby="my-dialog-content">
+                <div class="mdc-dialog__content" id="my-dialog-content">
+                    Give me a Coffee
+                </div>
+                <div class="mdc-dialog__actions">
+                    <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="cancel">
+                        <div class="mdc-button__ripple"></div>
+                        <span class="mdc-button__label">OK</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="mdc-dialog__scrim"></div>
+    </div>
+
     <section>
         <h1 class="notice_text">금일 서버가 온도 보고를 할 사용자들의 리스트 입니다.</h1>
     </section>
@@ -35,6 +53,7 @@
     </article>
     <script src="./src/js/mdc-min.js"></script>
     <script>
+        const dialog = mdc.dialog.MDCDialog.attachTo(document.querySelector(".mdc-dialog"));
         const listDOM = document.querySelector(".mdc-list");
         const list = mdc.list.MDCList.attachTo(listDOM);
         const httpRequest = new XMLHttpRequest();
@@ -76,6 +95,9 @@
 
             mdcListItem.append(mdcListItemRipple);
             mdcListItem.append(mdcListItemText);
+            mdcListItem.addEventListener("click", () => {
+                alert("누르지마 ㅡㅡ");
+            });
 
             return mdcListItem;
         }
