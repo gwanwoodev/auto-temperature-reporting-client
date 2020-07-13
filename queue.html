@@ -31,32 +31,54 @@
     </section>
     <article>
         <ul class="mdc-list mdc-list--two-line">
-            <li class="mdc-list-item" tabindex="0">
-                <span class="mdc-list-item__ripple"></span>
-                <span class="mdc-list-item__text">
-                    <span class="mdc-list-item__primary-text">Two-line item</span>
-                    <span class="mdc-list-item__secondary-text">Secondary text</span>
-                </span>
-            </li>
-            <li class="mdc-list-item">
-                <span class="mdc-list-item__ripple"></span>
-                <span class="mdc-list-item__text">
-                    <span class="mdc-list-item__primary-text">Two-line item</span>
-                    <span class="mdc-list-item__secondary-text">Secondary text</span>
-                </span>
-            </li>
-            <li class="mdc-list-item">
-                <span class="mdc-list-item__ripple"></span>
-                <span class="mdc-list-item__text">
-                    <span class="mdc-list-item__primary-text">Two-line item</span>
-                    <span class="mdc-list-item__secondary-text">Secondary text</span>
-                </span>
-            </li>
         </ul>
     </article>
     <script src="./src/js/mdc-min.js"></script>
     <script>
-        const list = mdc.list.MDCList.attachTo(document.querySelector(".mdc-list"));
+        const listDOM = document.querySelector(".mdc-list");
+        const list = mdc.list.MDCList.attachTo(listDOM);
+        const httpRequest = new XMLHttpRequest();
+        httpRequest.open("GET", "https://gwgod.xyz/api/queue");
+        httpRequest.setRequestHeader("Content-Type", "application/json");
+        httpRequest.send();
+
+        httpRequest.onreadystatechange = (evt) => {
+            if (httpRequest.readyState === XMLHttpRequest.DONE) {
+                if (httpRequest.status === 200) {
+                    bindData(JSON.parse(httpRequest.response));
+                }
+            }
+        }
+
+        const bindData = (json) => {
+            for (const data of json) {
+                const listNewDOM = createListDOM(data);
+                listDOM.append(listNewDOM);
+            }
+        }
+
+        const createListDOM = ({ idVal, hugaDate }) => {
+            let mdcListItem = document.createElement("div");
+            mdcListItem.classList.add("mdc-list-item");
+            let mdcListItemRipple = document.createElement("span");
+            mdcListItemRipple.classList.add("mdc-list-item__ripple");
+            let mdcListItemText = document.createElement("span");
+            mdcListItemText.classList.add("mdc-list-item__text");
+            let mdcListItemPrimaryText = document.createElement("span");
+            mdcListItemPrimaryText.classList.add("mdc-list-item__primary-text");
+            mdcListItemPrimaryText.innerText = idVal;
+            let mdcListItemSecondaryText = document.createElement("span");
+            mdcListItemSecondaryText.classList.add("mdc-list-item__secondary-text");
+            mdcListItemSecondaryText.innerText = `휴가복귀일: ${hugaDate}`;
+
+            mdcListItemText.append(mdcListItemPrimaryText);
+            mdcListItemText.append(mdcListItemSecondaryText);
+
+            mdcListItem.append(mdcListItemRipple);
+            mdcListItem.append(mdcListItemText);
+
+            return mdcListItem;
+        }
     </script>
     <script src="./src/js/global.js"></script>
 </body>
