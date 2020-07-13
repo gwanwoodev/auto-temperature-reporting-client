@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ACR - Queue</title>
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/global.css">
+    <link rel="stylesheet" href="./src/css/mdc-min.css">
+</head>
+
+<body>
+    <header class="mdc-top-app-bar">
+        <div class="mdc-top-app-bar__row">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button homeButton"
+                    aria-label="Open navigation menu">home</button>
+                <span class="mdc-top-app-bar__title">ACR - Queue</span>
+            </section>
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+                <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Favorite"
+                    id="coffee">favorite</button>
+            </section>
+        </div>
+    </header>
+
+    <section>
+        <h1 class="notice_text">금일 서버가 온도 보고를 할 사용자들의 리스트 입니다.</h1>
+    </section>
+    <article>
+        <ul class="mdc-list mdc-list--two-line">
+            <li class="mdc-list-item" tabindex="0">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__text">
+                    <span class="mdc-list-item__primary-text">Two-line item</span>
+                    <span class="mdc-list-item__secondary-text">Secondary text</span>
+                </span>
+            </li>
+            <li class="mdc-list-item">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__text">
+                    <span class="mdc-list-item__primary-text">Two-line item</span>
+                    <span class="mdc-list-item__secondary-text">Secondary text</span>
+                </span>
+            </li>
+            <li class="mdc-list-item">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__text">
+                    <span class="mdc-list-item__primary-text">Two-line item</span>
+                    <span class="mdc-list-item__secondary-text">Secondary text</span>
+                </span>
+            </li>
+        </ul>
+    </article>
+    <script src="./src/js/mdc-min.js"></script>
+    <script>
+        const list = mdc.list.MDCList.attachTo(document.querySelector(".mdc-list"));
+    </script>
+    <script src="./src/js/global.js"></script>
+</body>
+
+</html>

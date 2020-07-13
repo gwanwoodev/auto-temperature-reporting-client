@@ -15,9 +15,9 @@
     <header class="mdc-top-app-bar">
         <div class="mdc-top-app-bar__row">
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-                <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
-                    aria-label="Open navigation menu">menu</button>
-                <span class="mdc-top-app-bar__title">Auto-Temperature-Reporting-Client</span>
+                <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button homeButton"
+                    aria-label="Open navigation menu">home</button>
+                <span class="mdc-top-app-bar__title">ACR - Client</span>
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
                 <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Favorite"
@@ -78,12 +78,20 @@
                 <span class="mdc-button__label">SEND</span>
             </button>
         </article>
+
+        <article>
+            <button class="mdc-button mdc-button--raised" id="viewButton">
+                <div class="mdc-button__ripple"></div>
+                <span class="mdc-button__label">ShowList</span>
+            </button>
+        </article>
     </form>
 
     <!-- Required Material Web JavaScript library -->
     <script src="./src/js/mdc-min.js"></script>
     <!-- Instantiate single textfield component rendered in the document -->
     <script>
+
         mdc.topAppBar.MDCTopAppBar.attachTo(document.querySelector(".mdc-top-app-bar"));
         const topAppBarElement = document.querySelector('.mdc-top-app-bar');
         const dialog = mdc.dialog.MDCDialog.attachTo(document.querySelector(".mdc-dialog"));
@@ -121,13 +129,18 @@
                 if (httpRequest.readyState === XMLHttpRequest.DONE) {
                     if (httpRequest.status === 200) {
                         alert('OK');
-                    }else {
-						alert('X');
-					}
+                    } else {
+                        alert('X');
+                    }
                 }
             }
         });
+
+        document.querySelector("#viewButton").addEventListener("click", () => {
+            location.href = "./queue.html";
+        });
     </script>
+    <script src="src/js/global.js"></script>
 </body>
 
 </html>

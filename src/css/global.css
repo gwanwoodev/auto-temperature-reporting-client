@@ -37,3 +37,24 @@
       background-color: cornflowerblue;
       height: 50px;
   }
+
+  #viewButton {
+      width: 100%;
+      background-color: chocolate;
+      height: 50px;
+  }
+
+  .mdc-list-item {
+      background-color: gainsboro;
+      margin-bottom: 5px;
+  }
+
+  .mdc-list-item__text {
+      color: crimson;
+      font-weight: 900;
+  }
+
+  .notice_text {
+      margin: 10px 10px 0px 10px;
+      font-size: 12px;
+  }
