@@ -146,6 +146,9 @@
       <p class="update__text">
         ㆍ실제 API서버로 요청 되지 않고, 구 Heroku 서버로 요청되는 Issue Fix
       </p>
+      <p class="udate__text">
+        ㆍ보고 리스트 중복되지 않게끔 처리
+      </p>
     </div>
 
     <!-- Required Material Web JavaScript library -->
@@ -217,13 +220,17 @@
                 if (json.token) {
                   alert("success");
                 } else {
-                  alert("ID와 비밀번호를 다시 확인하세요.");
+                  alert(
+                    "ID/PW가 틀렸거나, 이미 보고 리스트에 올라간 계정입니다."
+                  );
                 }
               } catch (e) {
-                alert("ID와 비밀번호를 다시 확인하세요.");
+                alert(
+                  "ID/PW가 틀렸거나, 이미 보고 리스트에 올라간 계정입니다."
+                );
               }
             } else {
-              alert("ID와 비밀번호를 다시 확인하세요.");
+              alert("ID/PW가 틀렸거나, 이미 보고 리스트에 올라간 계정입니다.");
             }
             submitButton.disabled = false;
           }
