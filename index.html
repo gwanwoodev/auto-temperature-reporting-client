@@ -1,246 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>ATR-Service</title>
-    <link rel="stylesheet" href="./src/css/reset.css" />
-    <link rel="stylesheet" href="./src/css/global.css" />
-    <link rel="stylesheet" href="./src/css/mdc-min.css" />
-  </head>
 
-  <body>
-    <header class="mdc-top-app-bar">
-      <div class="mdc-top-app-bar__row">
-        <section
-          class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
-        >
-          <button
-            class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button homeButton"
-            aria-label="Open navigation menu"
-          >
-            home
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>ATR-Service</title>
+  <link rel="stylesheet" href="./src/css/reset.css" />
+  <link rel="stylesheet" href="./src/css/global.css" />
+  <link rel="stylesheet" href="./src/css/mdc-min.css" />
+</head>
+
+<body>
+  <header class="mdc-top-app-bar">
+    <div class="mdc-top-app-bar__row">
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+        <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button homeButton"
+          aria-label="Open navigation menu">
+          home
+        </button>
+        <span class="mdc-top-app-bar__title">ATR - Client</span>
+      </section>
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+        <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Favorite" id="coffee">
+          favorite
+        </button>
+      </section>
+    </div>
+  </header>
+
+  <section>
+    <h1 class="notice_text">사용 방법</h1>
+    <p class="notice_text bold">1. 관리자가 추가 되어있는 상태여야 함</p>
+    <p class="notice_text bold">
+      2. SEND 누를때 한번만 누를것 (느릴 수 있음)
+    </p>
+  </section>
+
+  <div class="mdc-dialog">
+    <div class="mdc-dialog__container">
+      <div class="mdc-dialog__surface" role="alertdialog" aria-modal="true" aria-labelledby="my-dialog-title"
+        aria-describedby="my-dialog-content">
+        <div class="mdc-dialog__content" id="my-dialog-content">
+          Give me a Coffee
+        </div>
+        <div class="mdc-dialog__actions">
+          <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="cancel">
+            <div class="mdc-button__ripple"></div>
+            <span class="mdc-button__label">OK</span>
           </button>
-          <span class="mdc-top-app-bar__title">ATR - Client</span>
-        </section>
-        <section
-          class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end"
-          role="toolbar"
-        >
-          <button
-            class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
-            aria-label="Favorite"
-            id="coffee"
-          >
-            favorite
-          </button>
-        </section>
-      </div>
-    </header>
-
-    <section>
-      <h1 class="notice_text">사용 방법</h1>
-      <p class="notice_text bold">1. 관리자가 추가 되어있는 상태여야 함</p>
-      <p class="notice_text bold">
-        2. SEND 누를때 한번만 누를것 (느릴 수 있음)
-      </p>
-    </section>
-
-    <div class="mdc-dialog">
-      <div class="mdc-dialog__container">
-        <div
-          class="mdc-dialog__surface"
-          role="alertdialog"
-          aria-modal="true"
-          aria-labelledby="my-dialog-title"
-          aria-describedby="my-dialog-content"
-        >
-          <div class="mdc-dialog__content" id="my-dialog-content">
-            Give me a Coffee
-          </div>
-          <div class="mdc-dialog__actions">
-            <button
-              type="button"
-              class="mdc-button mdc-dialog__button"
-              data-mdc-dialog-action="cancel"
-            >
-              <div class="mdc-button__ripple"></div>
-              <span class="mdc-button__label">OK</span>
-            </button>
-          </div>
         </div>
       </div>
-      <div class="mdc-dialog__scrim"></div>
     </div>
+    <div class="mdc-dialog__scrim"></div>
+  </div>
 
-    <form id="reportForm" method="POST" action="https://gwgod.xyz/api/report">
-      <article>
-        <label class="mdc-text-field mdc-text-field--filled">
-          <span class="mdc-text-field__ripple"></span>
-          <input
-            class="mdc-text-field__input"
-            type="text"
-            aria-labelledby="my-label-id"
-            id="email"
-          />
-          <span class="mdc-floating-label" id="my-label-id">E-MAIL</span>
-          <span class="mdc-line-ripple"></span>
-        </label>
-      </article>
+  <form id="reportForm" method="POST" action="https://gwgod.xyz/api/report">
+    <article>
+      <label class="mdc-text-field mdc-text-field--filled">
+        <span class="mdc-text-field__ripple"></span>
+        <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id" id="email" />
+        <span class="mdc-floating-label" id="my-label-id">E-MAIL</span>
+        <span class="mdc-line-ripple"></span>
+      </label>
+    </article>
 
-      <article>
-        <label class="mdc-text-field mdc-text-field--filled">
-          <span class="mdc-text-field__ripple"></span>
-          <input
-            class="mdc-text-field__input"
-            type="password"
-            aria-labelledby="my-label-id"
-            id="password"
-          />
-          <span class="mdc-floating-label" id="my-label-id">Password</span>
-          <span class="mdc-line-ripple"></span>
-        </label>
-      </article>
+    <article>
+      <label class="mdc-text-field mdc-text-field--filled">
+        <span class="mdc-text-field__ripple"></span>
+        <input class="mdc-text-field__input" type="password" aria-labelledby="my-label-id" id="password" />
+        <span class="mdc-floating-label" id="my-label-id">Password</span>
+        <span class="mdc-line-ripple"></span>
+      </label>
+    </article>
 
-      <article>
-        <label class="mdc-text-field mdc-text-field--filled">
-          <span class="mdc-text-field__ripple"></span>
-          <input
-            class="mdc-text-field__input"
-            type="text"
-            aria-labelledby="my-label-id"
-            id="hugaDate"
-          />
-          <span class="mdc-floating-label" id="my-label-id"
-            >휴가복귀일(예시 2020-07-13)</span
-          >
-          <span class="mdc-line-ripple"></span>
-        </label>
-      </article>
+    <article>
+      <label class="mdc-text-field mdc-text-field--filled">
+        <span class="mdc-text-field__ripple"></span>
+        <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id" id="hugaDate" />
+        <span class="mdc-floating-label" id="my-label-id">휴가복귀일(예시 2020-07-13)</span>
+        <span class="mdc-line-ripple"></span>
+      </label>
+    </article>
 
-      <article>
-        <button class="mdc-button mdc-button--raised" id="submit">
-          <div class="mdc-button__ripple"></div>
-          <span class="mdc-button__label">SEND</span>
-        </button>
-      </article>
+    <article>
+      <button class="mdc-button mdc-button--raised" id="submit">
+        <div class="mdc-button__ripple"></div>
+        <span class="mdc-button__label">SEND</span>
+      </button>
+    </article>
 
-      <article>
-        <button class="mdc-button mdc-button--raised" id="viewButton">
-          <div class="mdc-button__ripple"></div>
-          <span class="mdc-button__label">ShowList</span>
-        </button>
-      </article>
-    </form>
+    <article>
+      <button class="mdc-button mdc-button--raised" id="viewButton">
+        <div class="mdc-button__ripple"></div>
+        <span class="mdc-button__label">ShowList</span>
+      </button>
+    </article>
+  </form>
 
-    <hr />
-    <div class="custom__footer">
-      <h1 class="update__title bold">ATR ver 1.0.1 업데이트 내역</h1>
-      <p class="update__text">
-        ㆍ빈칸으로 SEND 요청 안되게끔, validation 처리
-      </p>
-      <p class="update__text">
-        ㆍID/PW 틀렸는데 OK Message 나오는 오류 처리
-      </p>
-      <p class="update__text">
-        ㆍ실제 API서버로 요청 되지 않고, 구 Heroku 서버로 요청되는 Issue Fix
-      </p>
-      <p class="update__text">
-        ㆍ보고 리스트 중복되지 않게끔 처리
-      </p>
-    </div>
+  <hr />
+  <div class="custom__footer">
+    <h1 class="update__title bold">ATR ver 1.0.0 업데이트 내역</h1>
+    <p class="update__text">
+      ㆍ07:00, 19:00 정각에 온도 보고되게끔 처리
+    </p>
+    <p class="update__text">
+      ㆍ복귀 당일날, Queue에 들어가지 않는 Issue Fix (필터링 변경)
+    </p>
+    <p class="update__text">
+      ㆍ금일 온도 보고자들을 한눈에 볼 수 있는 페이지 추가 (/queue)
+    </p>
+    <hr>
+    <h1 class="update__title bold">ATR ver 1.0.1 업데이트 내역</h1>
+    <p class="update__text">
+      ㆍ빈칸으로 SEND 요청 안되게끔, validation 처리
+    </p>
+    <p class="update__text">
+      ㆍ다중클릭 방지를 위해, 한번 SEND 요청시, SEND버튼 비활성화
+    </p>
+    <p class="update__text">
+      ㆍID/PW 틀렸는데 OK Message 나오는 오류 처리
+    </p>
+    <p class="update__text">
+      ㆍ구 Heroku 서버로 요청되는 Issue Fix (form action)
+    </p>
+    <p class="update__text">
+      ㆍ보고 리스트 중복되지 않게끔 처리
+    </p>
+    <hr>
+    <h1 class="update__title bold">ATR ver 1.0.2 업데이트 내역</h1>
+    <p class="update__text">
+      ㆍ정각이 아닌, 0~5분 랜덤으로 보고되게 처리
+    </p>
+  </div>
 
-    <!-- Required Material Web JavaScript library -->
-    <script src="./src/js/mdc-min.js"></script>
-    <!-- Instantiate single textfield component rendered in the document -->
-    <script>
-      mdc.topAppBar.MDCTopAppBar.attachTo(
-        document.querySelector(".mdc-top-app-bar")
-      );
-      const topAppBarElement = document.querySelector(".mdc-top-app-bar");
-      const dialog = mdc.dialog.MDCDialog.attachTo(
-        document.querySelector(".mdc-dialog")
-      );
-      const submitButton = document.querySelector("#submit");
+  <!-- Required Material Web JavaScript library -->
+  <script src="./src/js/mdc-min.js"></script>
+  <!-- Instantiate single textfield component rendered in the document -->
+  <script>
+    mdc.topAppBar.MDCTopAppBar.attachTo(
+      document.querySelector(".mdc-top-app-bar")
+    );
+    const topAppBarElement = document.querySelector(".mdc-top-app-bar");
+    const dialog = mdc.dialog.MDCDialog.attachTo(
+      document.querySelector(".mdc-dialog")
+    );
+    const submitButton = document.querySelector("#submit");
 
-      document.querySelectorAll(".mdc-text-field").forEach((tf) => {
-        mdc.textField.MDCTextField.attachTo(tf);
+    document.querySelectorAll(".mdc-text-field").forEach((tf) => {
+      mdc.textField.MDCTextField.attachTo(tf);
+    });
+
+    document
+      .querySelector("#reportForm")
+      .addEventListener("submit", (evt) => {
+        evt.preventDefault();
       });
 
-      document
-        .querySelector("#reportForm")
-        .addEventListener("submit", (evt) => {
-          evt.preventDefault();
+    function sha512(str) {
+      return crypto.subtle
+        .digest("SHA-512", new TextEncoder("utf-8").encode(str))
+        .then((buf) => {
+          return Array.prototype.map
+            .call(new Uint8Array(buf), (x) =>
+              ("00" + x.toString(16)).slice(-2)
+            )
+            .join("");
         });
+    }
 
-      function sha512(str) {
-        return crypto.subtle
-          .digest("SHA-512", new TextEncoder("utf-8").encode(str))
-          .then((buf) => {
-            return Array.prototype.map
-              .call(new Uint8Array(buf), (x) =>
-                ("00" + x.toString(16)).slice(-2)
-              )
-              .join("");
-          });
+    submitButton.addEventListener("click", async (evt) => {
+      evt.preventDefault();
+      const email = document.querySelector("#email").value;
+      const password = document.querySelector("#password").value;
+      const hugaDate = document.querySelector("#hugaDate").value;
+
+      if (!email || !password || !hugaDate) {
+        alert("잘못된 값입니다.");
+        return;
       }
 
-      submitButton.addEventListener("click", async (evt) => {
-        evt.preventDefault();
-        const email = document.querySelector("#email").value;
-        const password = document.querySelector("#password").value;
-        const hugaDate = document.querySelector("#hugaDate").value;
+      submitButton.disabled = true;
 
-        if (!email || !password || !hugaDate) {
-          alert("잘못된 값입니다.");
-          return;
-        }
+      const encryptPassword = await sha512(password);
 
-        submitButton.disabled = true;
+      const httpRequest = new XMLHttpRequest();
+      httpRequest.open("POST", "https://gwgod.xyz/api/report");
+      httpRequest.setRequestHeader("Content-Type", "application/json");
+      httpRequest.send(
+        JSON.stringify({
+          idVal: email,
+          pwVal: encryptPassword,
+          hugaDate: hugaDate,
+        })
+      );
 
-        const encryptPassword = await sha512(password);
-
-        const httpRequest = new XMLHttpRequest();
-        httpRequest.open("POST", "https://gwgod.xyz/api/report");
-        httpRequest.setRequestHeader("Content-Type", "application/json");
-        httpRequest.send(
-          JSON.stringify({
-            idVal: email,
-            pwVal: encryptPassword,
-            hugaDate: hugaDate,
-          })
-        );
-
-        httpRequest.onreadystatechange = (evt) => {
-          if (httpRequest.readyState === XMLHttpRequest.DONE) {
-            if (httpRequest.status === 200) {
-              try {
-                let json = JSON.parse(httpRequest.responseText);
-                if (json.token) {
-                  alert("success");
-                } else {
-                  alert(
-                    "ID/PW가 틀렸거나, 이미 보고 리스트에 올라간 계정입니다."
-                  );
-                }
-              } catch (e) {
+      httpRequest.onreadystatechange = (evt) => {
+        if (httpRequest.readyState === XMLHttpRequest.DONE) {
+          if (httpRequest.status === 200) {
+            try {
+              let json = JSON.parse(httpRequest.responseText);
+              if (json.token) {
+                alert("success");
+              } else {
                 alert(
                   "ID/PW가 틀렸거나, 이미 보고 리스트에 올라간 계정입니다."
                 );
               }
-            } else {
-              alert("ID/PW가 틀렸거나, 이미 보고 리스트에 올라간 계정입니다.");
+            } catch (e) {
+              alert(
+                "ID/PW가 틀렸거나, 이미 보고 리스트에 올라간 계정입니다."
+              );
             }
-            submitButton.disabled = false;
+          } else {
+            alert("ID/PW가 틀렸거나, 이미 보고 리스트에 올라간 계정입니다.");
           }
-        };
-      });
+          submitButton.disabled = false;
+        }
+      };
+    });
 
-      document.querySelector("#viewButton").addEventListener("click", () => {
-        location.href = "./queue.html";
-      });
-    </script>
-    <script src="src/js/global.js"></script>
-  </body>
+    document.querySelector("#viewButton").addEventListener("click", () => {
+      location.href = "./queue.html";
+    });
+  </script>
+  <script src="src/js/global.js"></script>
+</body>
+
 </html>
